@@ -85,6 +85,7 @@ class Student
       new = self.new_from_db(row)
       below_12 << new
     end
+    below_12
   end 
   
 end
