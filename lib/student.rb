@@ -15,8 +15,10 @@ class Student
       FROM students 
     SQL
     
-    DB[:conn].execute(sql).map do |row|
-      self.new_from_db(row)
+    all_students = []
+    DB[:conn].execute(sql).each do |row|
+      new = self.new_from_db(row)
+      all_students << new
     end.first
   end
 
