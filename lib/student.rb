@@ -67,9 +67,11 @@ class Student
     SQL
     
     grade_9 = []
-    DB[:conn].execute(sql).select |row|
+    DB[:conn].execute(sql).each do |row|
       new = self.new_from_db(row)
       grade_9 << new
     end
   end 
+  
+  
 end
