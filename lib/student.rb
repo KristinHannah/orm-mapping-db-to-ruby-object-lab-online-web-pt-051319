@@ -70,6 +70,6 @@ class Student
     DB[:conn].execute(sql).select |row|
       new = self.new_from_db(row)
       grade_9 << new
-    end.first
+    end
   end 
 end
