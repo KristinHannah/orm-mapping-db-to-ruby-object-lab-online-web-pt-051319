@@ -80,10 +80,10 @@ class Student
       WHERE students.grade < 12
     SQL
     
-    grade_9 = []
+    below_12 = []
     DB[:conn].execute(sql).each do |row|
       new = self.new_from_db(row)
-      grade_9 << new
+      below_12 << new
     end
   end 
   
