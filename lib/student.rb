@@ -121,4 +121,19 @@ class Student
     end.first
   end 
   
+  def self.all_students_in_grade_X(num)
+    sql = <<-SQL
+      SELECT * 
+      FROM students 
+      WHERE students.grade = ?
+    SQL
+    
+    all_in_grade_x = []
+    DB[:conn].execute(sql, num).each do |row|
+      new = self.new_from_db(row)
+      all_in_grade_x << new
+    end
+    all_in_grade_x
+  end 
+  
 end
