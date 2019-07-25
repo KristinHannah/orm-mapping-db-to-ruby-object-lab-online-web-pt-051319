@@ -91,4 +91,20 @@ class Student
     below_12
   end 
   
+  def self.first_x_students_in_grade_10(num) 
+     sql = <<-SQL
+      SELECT * 
+      FROM students 
+      WHERE students.grade = 10 
+      LIMIT ?
+    SQL
+    
+    x_in_grade_10 = []
+    DB[:conn].execute(sql, num).each do |row|
+      new = self.new_from_db(row)
+      x_in_grade_10 << new
+    end
+    x_in_grade_10
+  end 
+  
 end
