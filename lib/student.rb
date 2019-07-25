@@ -112,6 +112,7 @@ class Student
       SELECT * 
       FROM students 
       WHERE students.grade = 10
+      ORDER BY id
       LIMIT 1
     SQL
     
